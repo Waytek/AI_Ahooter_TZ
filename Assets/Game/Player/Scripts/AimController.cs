@@ -44,6 +44,7 @@ public class AimController : MonoBehaviour {
     {
         Quaternion needRotate = Quaternion.LookRotation(new Vector3(lookPoint.x,0,lookPoint.z));
         transform.rotation = (Quaternion.Lerp(transform.rotation, needRotate, speedRotation/100));
+        
         float animRootate = (needRotate.ToEuler() - transform.rotation.ToEuler()).magnitude;
         if (!playerController.animator.GetBool("Shoot"))
         {

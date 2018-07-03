@@ -5,6 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/1.unity
+  - enabled: 0
+    path: Assets/Game/1.unity
     guid: 9412446baa4202147a6155ecee2d09db
+  - enabled: 1
+    path: Assets/TowerDeffence/TD.unity
+    guid: 49e0588b166bcc745af36d3f7c9a07b7

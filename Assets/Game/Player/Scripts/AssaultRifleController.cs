@@ -30,11 +30,6 @@ public class AssaultRifleController : BaseGun {
         Init();
         playerController.onDead += OnDead;
     }
-    void Update()
-    {
-        
-        //Shoot();
-    }
     void Shoot()
     {
         if(armoryCurrentCount <= 0)

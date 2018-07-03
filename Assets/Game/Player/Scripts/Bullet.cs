@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour {
     }
     void OnCollisionEnter(Collision coll)
     {
-        if(coll.gameObject.tag == "Player")
+        if(coll.gameObject.tag == "Player" || coll.gameObject.layer == LayerMask.NameToLayer("Build"))
         {
             return;
         }

@@ -20,10 +20,17 @@ public class LifeController : MonoBehaviour {
         curentHitPoints = maxHitPoints;
 
     }
+    bool isDead;
     void Dead()
     {
         controller.animator.SetBool("Dead", true);
         GetComponent<Collider>().enabled = false;
+        controller.onDead.Invoke();
+        isDead = true;
+    }
+    void OnDestroy()
+    {
+        if(!isDead)
         controller.onDead.Invoke();
     }
     public void SetDamage(float damage, Action onDead)

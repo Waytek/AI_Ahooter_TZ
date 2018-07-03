@@ -9,27 +9,35 @@ public class PlayerController : BaseComponentController {
     // Use this for initialization
     void Start()
     {
+        if(GameController.Instance)
         GameController.Instance.players.Add(this);
         onDead += OnDead;
         onKillEnemy += OnKillEnemy;
-        GameController.Instance.onStartGame += OnStartGame;
+        if (GameController.Instance)
+            GameController.Instance.onStartGame += OnStartGame;
     }
     void OnDead()
     {
-        GameController.Instance.players.Remove(this);
-        GameController.Instance.Loose();
+        if (GameController.Instance)
+        {
+            GameController.Instance.players.Remove(this);
+            GameController.Instance.Loose();
+        }
     }
     void OnKillEnemy()
     {
-        GameController.Instance.killedEnemyCount++;
+        if (GameController.Instance)
+            GameController.Instance.killedEnemyCount++;
     }
     void OnDisable()
     {        
+        if(GameController.Instance)
         GameController.Instance.onStartGame -= OnStartGame;
     }
     void OnStartGame()
     {
-        GameController.Instance.players.Remove(this);
+        if (GameController.Instance)
+            GameController.Instance.players.Remove(this);
         Destroy(this.gameObject);
     }
 
